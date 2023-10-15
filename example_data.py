@@ -1,17 +1,12 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-import random
-import pymongo
-from pymongo import MongoClient
-
-# client = MongoClient("mongodb://localhost:27017")
-# db = client["your_database_name"]
-# collection = db["vendingMachines"]
-
+status = ["working","under maintenance","out of order"]
+alerts = ["none","low inventory","maintenance required"]
+payment_methodes = ["cash","creditcard","bankcontact"]
 locations = ["UCLL Hertogstraat","UCLL Proximus","ING","Leuven Public Library","KU Leuven Library","KBC"]
+
+
+#products = {"P001":"Soda","P002":"Cola","P003":"Twix","P004":"Nutella B-ready"}
+
+# example of the vending machine data and sales data
 
 vending_machines_data = {
     "vendingMachineID": "VM001",
@@ -63,28 +58,17 @@ vending_machines_data = {
             "quantity": 10,
             "description": "without sparkling"
         }
+
+
+
     ]
 }
-def vending_machines_init():
-    counter =1
-    for l in locations:
-        vending_machines_data['vendingMachineID'] = f"VM00{counter}"
-        vending_machines_data['location'] = l
-        print(vending_machines_data)
-        #inserted_vending_machine = collection.insert_one(vending_machines_data)
-        #print("toegevoegde product id :", inserted_vending_machine.inserted_id)
-        counter +=1
 
+sales_Data = {
+    "timestamp":"1697358096", # e datetime in UNIX epoch time.
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-
-    vending_machines_init()
-
-
-
-
-
-
-
+    "productID": "P001",
+    "amount": 1.5,
+    "paymentMethod": "cash", # other option creditcard / bankcontact
+    "vendingMachineID": "VM001"
+}
