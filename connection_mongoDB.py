@@ -1,33 +1,38 @@
-client = MongoClient("mongodb://localhost:27017")
-db = client["your_database_name"]
+from pymongo import MongoClient
 
-
-collection = db["products"]
+client = MongoClient("mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB")
+db = client.get_database()
 
 # data toevoegen
 
-data = {
-    "product_id": 1,
-    "product_name": "product 1",
-    "price": 10.99
-}
-
-inserted_product = collection.insert_one(data)
-print("toegevoegde product id :", inserted_product.inserted_id)
+# data = {
+#     "product_id": 1,
+#     "product_name": "product 1",
+#     "price": 10.99
+# }
+def add_data(collection_name,data):
+    collection = db[collection_name]
+    inserted_product = collection.insert_one(data)
+    print("toegevoegde product id :", inserted_product.inserted_id)
 
 # data oproepen
+def call_data(collection_name,id_key ,id):
+    collection = db[collection_name]
+    query = {id_key: id}
+    result = collection.find(query)
+    return result
 
-query = {"product_name": "product 1"}
-result = collection.find(query)
+# update data
+def update_data(collection_name,id_key ,id,update_key_id,new_value):
+    collection = db[collection_name]
+    query = {id_key: id}
+    new_values = {"$set": {update_key_id: new_value}}
+    collection.update_one(query, new_values)
 
-for product in result:
-    print(product)
 
-# update
-query = {"product_name": "product 1"}
-new_values = {"$set": {"price": 12.99}}
-collection.update_one(query, new_values)
 
 # verwideren
-query = {"product_name": "product 1"}
-collection.delete_one(query)
+def delete_data(collection_name,id_key ,id):
+    collection = db[collection_name]
+    query = {id_key: id}
+    collection.delete_one(query)
