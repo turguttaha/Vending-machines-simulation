@@ -1,5 +1,5 @@
 # This is a sample Python script.
-
+import math
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
@@ -8,9 +8,12 @@ import random
 import time
 # another class to connect db and add, get, update, delete some objects
 import connection_mongoDB
+from pymongo import MongoClient
+import sales_operations
 import os
 import openai
 import json
+from openai_operations import run_conversation
 
 
 #lists which are using during foreach loop
@@ -151,7 +154,6 @@ def example_sales_init():
                 "name": "Soda",
                 "price": 1.5,
                 "profit percentage": 30,
-                "quantity": 10,
                 "description": "without aroma"
             },
             "paymentMethod": "cash",  # other option creditcard / bankcontact
@@ -177,93 +179,10 @@ def example_sales_init():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    #vending_machines_init()
-    #example_sales_init()
-    # example of the update database using update_data funtion from connection_mongoDB class
-    # we will use it to update vendingmachines data per 15 min(it can be shorter or longer period)
-    # connection_mongoDB.update_data("ChatBotDB-Release-0.1",
-    #                                "vendingMachineID",
-    #                                "VM001",
-    #                                "temp",
-    #                                15)
+    # vending_machines_init()
+    #  example_sales_init()
+    while True:
+        message = input("Gebruiker:")
+        print(run_conversation(message))
 
 
-
-    # Example dummy function hard coded to return the same weather
-    # In production, this could be your backend API or an external API
-    openai.api_key = "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"
-
-
-    # Example dummy function hard coded to return the same weather
-    # In production, this could be your backend API or an external API
-    def get_current_weather(location, unit="fahrenheit"):
-        """Get the current weather in a given location"""
-        weather_info = {
-            "location": location,
-            "temperature": "60",
-            "unit": unit,
-            "forecast": ["Cloudy", "windy"],
-        }
-        return json.dumps(weather_info)
-
-
-    def run_conversation():
-        # Step 1: send the conversation and available functions to GPT
-        messages = [{"role": "user", "content": "Hoe is het weer in Leuven?"}]
-        functions = [
-            {
-                "name": "get_current_weather",
-                "description": "Get the current weather in a given location",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The city and state, e.g. San Francisco, CA",
-                        },
-                        "unit": {"type": "string", "enum": ["celsius", "fahrenheit"]},
-                    },
-                    "required": ["location"],
-                },
-            }
-        ]
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-0613",
-            messages=messages,
-            functions=functions,
-            function_call="auto",  # auto is default, but we'll be explicit
-        )
-        response_message = response["choices"][0]["message"]
-
-        # Step 2: check if GPT wanted to call a function
-        if response_message.get("function_call"):
-            # Step 3: call the function
-            # Note: the JSON response may not always be valid; be sure to handle errors
-            available_functions = {
-                "get_current_weather": get_current_weather,
-            }  # only one function in this example, but you can have multiple
-            function_name = response_message["function_call"]["name"]
-            function_to_call = available_functions[function_name]
-            function_args = json.loads(response_message["function_call"]["arguments"])
-            function_response = function_to_call(
-                location=function_args.get("location"),
-                unit=function_args.get("unit"),
-            )
-
-            # Step 4: send the info on the function call and function response to GPT
-            messages.append(response_message)  # extend conversation with assistant's reply
-            messages.append(
-                {
-                    "role": "function",
-                    "name": function_name,
-                    "content": function_response,
-                }
-            )  # extend conversation with function response
-            second_response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo-0613",
-                messages=messages,
-            )  # get a new response from GPT where it can see the function response
-            return second_response
-
-
-    print(run_conversation())
