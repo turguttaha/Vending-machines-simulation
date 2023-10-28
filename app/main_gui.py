@@ -1,8 +1,7 @@
 import tkinter as tk
 from functions.openai_operations import *
 from functions.vending_machines_operations import *
-
-openai.api_key = "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"
+import data.openai_key
 
 
 class MainGUI:

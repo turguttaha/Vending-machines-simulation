@@ -9,6 +9,8 @@ import time
 from db_connections import mongodb_connection
 from functions.openai_operations import *
 
+import data.openai_key
+
 # lists which are using during foreach loop
 locations = ["UCLL Hertogstraat", "UCLL Proximus", "ING", "Leuven Public Library", "KU Leuven Library", "KBC"]
 payment_methodes = ["cash", "creditcard", "bankcontact"]
