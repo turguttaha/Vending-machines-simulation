@@ -1,22 +1,19 @@
-import openai
 import tkinter as tk
 from functions.openai_operations import *
-from functions.sales_operations import *
 from functions.vending_machines_operations import *
-import os
-import data.openai_key
+
 
 class MainGUI:
-    def __init__(self, root):
-        self.root = root
+    def __init__(self, main_root):
+        self.root = main_root
         self.root.title("ChatBot")
 
         # Create chat history text box
-        self.chat_history = tk.Text(root, state=tk.DISABLED)
+        self.chat_history = tk.Text(main_root, state=tk.DISABLED)
         self.chat_history.pack()
 
         # Create the Frame where the user input box and send button are located
-        input_frame = tk.Frame(root)
+        input_frame = tk.Frame(main_root)
         input_frame.pack(fill=tk.BOTH)
 
         # Create user input box
@@ -50,13 +47,11 @@ class MainGUI:
             bot_response = response.choices[0].message["content"]
             self.update_chat_history(f"Bot: {bot_response}")
 
-
-
-
     def update_chat_history(self, message):
         self.chat_history.config(state=tk.NORMAL)
         self.chat_history.insert(tk.END, message + "\n")
         self.chat_history.config(state=tk.DISABLED)
+
 
 if __name__ == "__main__":
     root = tk.Tk()

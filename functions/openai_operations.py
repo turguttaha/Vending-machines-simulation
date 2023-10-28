@@ -2,13 +2,10 @@ import json
 import openai
 from functions import sales_operations
 
-# API key
-import data.openai_key
-
 
 def run_conversation(message):
     # Step 1: send the conversation and available functions to GPT
-    messages = [{"role": "user", "content":message}]
+    messages = [{"role": "user", "content": message}]
     functions = [
         # introduction of functions to ai
         {
@@ -69,5 +66,3 @@ def run_conversation(message):
         return second_response
     else:
         return response_message.content
-
-
