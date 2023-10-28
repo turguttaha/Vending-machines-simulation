@@ -1,4 +1,4 @@
-from db_connections.mongodb_connection import db
+from db_connections.mongodb_connection import *
 
 
 def get_profit_certain_period(start_date,end_date):
