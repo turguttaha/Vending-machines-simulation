@@ -1,8 +1,7 @@
 from functions.sales_operations import *
 from data.mongodb_data import *
+from data.openai_key import *
 
 if __name__ == "__main__":
-    print(get_profit_certain_period(2021, 2022)) # out put 0
-    for i in get_all_data():
-        print(i)
+    print()
 

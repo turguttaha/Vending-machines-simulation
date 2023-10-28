@@ -13,3 +13,4 @@ def print_all_data():
     datas = get_all_data()
     for data in datas:
         print(data)
+

@@ -7,7 +7,7 @@ import random
 import time
 # another class to connect db and add, get, update, delete some objects
 from db_connections import mongodb_connection
-from funcions.openai_operations import run_conversation
+from functions.openai_operations import *
 
 
 #lists which are using during foreach loop

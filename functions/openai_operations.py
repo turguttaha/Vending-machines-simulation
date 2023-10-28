@@ -3,7 +3,7 @@ import openai
 from functions import sales_operations
 
 # API key
-openai.api_key = "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"
+import data.openai_key
 
 
 def run_conversation(message):
