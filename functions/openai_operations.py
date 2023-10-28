@@ -1,8 +1,6 @@
 import json
-
 import openai
-
-import sales_operations
+from functions import sales_operations
 
 # API key
 openai.api_key = "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"

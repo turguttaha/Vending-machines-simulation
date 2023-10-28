@@ -1,5 +1,5 @@
-from connection_mongoDB import db
-import json
+from db_connections.mongodb_connection import db
+
 
 def get_profit_certain_period(start_date,end_date):
         collection = db["sales-0.1"]

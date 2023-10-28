@@ -1,5 +1,4 @@
 # This is a sample Python script.
-import math
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
@@ -7,13 +6,8 @@ import math
 import random
 import time
 # another class to connect db and add, get, update, delete some objects
-import connection_mongoDB
-from pymongo import MongoClient
-import sales_operations
-import os
-import openai
-import json
-from openai_operations import run_conversation
+from db_connections import mongodb_connection
+from funcions.openai_operations import run_conversation
 
 
 #lists which are using during foreach loop
@@ -141,8 +135,8 @@ def vending_machines_init():
         vending_machines_data['location'] = l
         #print(vending_machines_data)
 
-        #adding object to db using connection_mongoDB.py(parameters collection name , newData to add)
-        connection_mongoDB.add_data("ChatBotDB-Release-0.1",vending_machines_data)
+        #adding object to db using mongodb_connection.py(parameters collection name , newData to add)
+        mongodb_connection.add_data("ChatBotDB-Release-0.1", vending_machines_data)
 
         counter +=1
 def example_sales_init():
@@ -174,7 +168,7 @@ def example_sales_init():
         sales_Data['product'] = random.choice(product_list)
 
 
-        connection_mongoDB.add_data("sales-0.1", sales_Data)
+        mongodb_connection.add_data("sales-0.1", sales_Data)
 
 
 # Press the green button in the gutter to run the script.

@@ -24,6 +24,8 @@ def call_data(collection_name,id_key ,id):
     result = collection.find(query)
     return result
 
+
+
 # update data
 def update_data(collection_name,id_key ,id,update_key_id,new_value):
     collection = db[collection_name]
