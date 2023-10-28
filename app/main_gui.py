@@ -32,23 +32,23 @@ class MainGUI:
         self.user_input.delete(0, tk.END)
 
         self.update_chat_history(f"You: {user_message}")
-        # if "payment" or "analist" in user_message.lower():
-        #     # use payment_methode_analysis to show table
-        #     payment_methode_str_array = ["Cash", "Credit Card", "Mobile Payment"]
-        #     payment_times_int_array = [20, 35, 15]
-        #     payment_methode_analysis(payment_methode_str_array, payment_times_int_array)
+        if ("payment" in user_message.lower()) or ("betaal" in user_message.lower()):
+            # use payment_methode_analysis to show table
+            payment_methode_str_array = ["Cash", "Credit Card", "Mobile Payment"]
+            payment_times_int_array = [20, 35, 15]
+            payment_methode_analysis(payment_methode_str_array, payment_times_int_array)
 
+        else:
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo-0613",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant."},
+                    {"role": "user", "content": user_message}
+                ]
+            )
 
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-0613",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": user_message}
-            ]
-        )
-
-        bot_response = response.choices[0].message["content"]
-        self.update_chat_history(f"Bot: {bot_response}")
+            bot_response = response.choices[0].message["content"]
+            self.update_chat_history(f"Bot: {bot_response}")
 
 
 
