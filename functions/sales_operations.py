@@ -1,8 +1,8 @@
 from db_connections.mongodb_connection import *
-
+from data.mongodb_data import *
 
 def get_profit_certain_period(start_date,end_date):
-        collection = db["sales-0.1"]
+        collection = mongodb_instance.db["sales-0.1"]
 
         query = {
             "timestamp": {
