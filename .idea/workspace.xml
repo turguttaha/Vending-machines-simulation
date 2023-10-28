@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Optimize code structure, add a simple GUI and analist_function">
+    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Encapsulate mongoDb into a class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mongodb_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/mongodb_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_connections/mongodb_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_connections/mongodb_connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulation_lab/try_get_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_lab/try_get_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,12 +165,29 @@
       <option name="project" value="LOCAL" />
       <updated>1698489914542</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Encapsulate mongoDb into a class">
+      <option name="closed" value="true" />
+      <created>1698490994538</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698490994538</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Encapsulate mongoDb into a class">
+      <option name="closed" value="true" />
+      <created>1698491033062</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698491033062</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init Gitignore" />
     <MESSAGE value="Optimize code structure, add a simple GUI and analist_function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize code structure, add a simple GUI and analist_function" />
+    <MESSAGE value="Encapsulate mongoDb into a class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Encapsulate mongoDb into a class" />
   </component>
 </project>
