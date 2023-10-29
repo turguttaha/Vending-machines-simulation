@@ -1,7 +1,12 @@
 import tkinter as tk
+from collections import Counter
+
 from functions.openai_operations import *
 from functions.vending_machines_operations import *
-import data.openai_key
+from data.mongodb_data import *
+from data.openai_key import *
+
+setup_openai_key()
 
 
 class MainGUI:
@@ -28,13 +33,16 @@ class MainGUI:
     def send_message(self):
         user_message = self.user_input.get()
         self.user_input.delete(0, tk.END)
-
         self.update_chat_history(f"You: {user_message}")
+
+        # Use this code instead of the following
+        # bot_response = run_conversation(user_message)
+        # self.update_chat_history(f"Bot: {bot_response}")
+
         if ("payment" in user_message.lower()) or ("betaal" in user_message.lower()):
-            # use payment_methode_analysis to show table
-            payment_methode_str_array = ["Cash", "Credit Card", "Mobile Payment"]
-            payment_times_int_array = [20, 35, 15]
-            payment_methode_analysis(payment_methode_str_array, payment_times_int_array)
+            payment_method_str_array, payment_times_int_array = get_all_payment_and_times()
+            payment_methode_analysis(payment_method_str_array, payment_times_int_array)
+
 
         else:
             response = openai.ChatCompletion.create(

@@ -8,3 +8,5 @@ def payment_methode_analysis(payment_methode_str_array, payment_times_int_array)
     plt.bar(payment_methode_str_array, payment_times_int_array)
     plt.title("Betaalmethode Analiseren")
     plt.show()
+
+
