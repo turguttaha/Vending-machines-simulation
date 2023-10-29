@@ -21,6 +21,7 @@ def get_all_payment_and_times():
         if payment_method not in payment_method_str_array:
             payment_method_str_array.append(payment_method)
             payment_times_int_array.append(1)
+
         else:
             index = payment_method_str_array.index(payment_method)
             payment_times_int_array[index] += 1
