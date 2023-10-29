@@ -35,25 +35,25 @@ class MainGUI:
         self.update_chat_history(f"You: {user_message}")
 
         # Use this code instead of the following
-        # bot_response = openai_operations.run_conversation(user_message)
-        # self.update_chat_history(f"Bot: {bot_response}")
+        bot_response = openai_operations.run_conversation(user_message)
+        self.update_chat_history(f"Bot: {bot_response}")
 
-        if ("payment" in user_message.lower()) or ("betaal" in user_message.lower()):
-            payment_method_str_array, payment_times_int_array = mongodb_data.get_all_payment_and_times()
-            vending_machines_operations.payment_methode_analysis(payment_method_str_array, payment_times_int_array)
-
-
-        else:
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo-0613",
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": user_message}
-                ]
-            )
-
-            bot_response = response.choices[0].message["content"]
-            self.update_chat_history(f"Bot: {bot_response}")
+        # if ("payment" in user_message.lower()) or ("betaal" in user_message.lower()):
+        #     payment_method_str_array, payment_times_int_array = mongodb_data.get_all_payment_and_times()
+        #     vending_machines_operations.payment_methode_analysis(payment_method_str_array, payment_times_int_array)
+        #
+        #
+        # else:
+        #     response = openai.ChatCompletion.create(
+        #         model="gpt-3.5-turbo-0613",
+        #         messages=[
+        #             {"role": "system", "content": "You are a helpful assistant."},
+        #             {"role": "user", "content": user_message}
+        #         ]
+        #     )
+        #
+        #     bot_response = response.choices[0].message["content"]
+        #     self.update_chat_history(f"Bot: {bot_response}")
 
     def update_chat_history(self, message):
         self.chat_history.config(state=tk.NORMAL)

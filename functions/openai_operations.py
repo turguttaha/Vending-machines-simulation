@@ -1,13 +1,14 @@
 import json
 import openai
 from functions import sales_operations
+from functions import vending_machines_operations
 
 
 def run_conversation(message):
     # Step 1: send the conversation and available functions to GPT
     messages = [{"role": "user", "content": message}]
     functions = [
-        # introduction of functions to ai
+        # introduction of functions to AI
         {
             "name": "get_profit_certain_period",
             "description": "Get profit at the given date intervals. with python codes",
@@ -25,7 +26,27 @@ def run_conversation(message):
                 },
                 "required": ["start_date", "end_date"],
             },
-        }
+        },  # 2. add a new functions
+        {
+            "name": "payment_methode_analysis_in_certain_period",
+            "description": "Retrieve different types of payment methods and their respective count in a given date "
+                           "range.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "start_date": {
+                        "type": "integer",
+                        "description": "Start date Epoch timestamp in seconds",
+                    },
+                    "end_date": {
+                        "type": "integer",
+                        "description": "End date Epoch timestamp in seconds",
+                    },
+                },
+                "required": ["start_date", "end_date"],
+            },
+        },
+
     ]
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-0613",
@@ -41,6 +62,8 @@ def run_conversation(message):
         # Note: the JSON response may not always be valid; be sure to handle errors
         available_functions = {
             "get_profit_certain_period": sales_operations.get_profit_certain_period,
+            "payment_methode_analysis_in_certain_period": vending_machines_operations
+            .payment_methode_analysis_in_certain_period,
         }  # only one function in this example, but you can have multiple
         function_name = response_message["function_call"]["name"]
         function_to_call = available_functions[function_name]
