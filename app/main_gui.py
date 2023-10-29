@@ -1,9 +1,8 @@
 import tkinter as tk
-from collections import Counter
 
-from functions.openai_operations import *
-from functions.vending_machines_operations import *
-from data.mongodb_data import *
+from functions import openai_operations
+from functions import vending_machines_operations
+from data import mongodb_data
 from data.openai_key import *
 
 setup_openai_key()
@@ -36,12 +35,12 @@ class MainGUI:
         self.update_chat_history(f"You: {user_message}")
 
         # Use this code instead of the following
-        # bot_response = run_conversation(user_message)
+        # bot_response = openai_operations.run_conversation(user_message)
         # self.update_chat_history(f"Bot: {bot_response}")
 
         if ("payment" in user_message.lower()) or ("betaal" in user_message.lower()):
-            payment_method_str_array, payment_times_int_array = get_all_payment_and_times()
-            payment_methode_analysis(payment_method_str_array, payment_times_int_array)
+            payment_method_str_array, payment_times_int_array = mongodb_data.get_all_payment_and_times()
+            vending_machines_operations.payment_methode_analysis(payment_method_str_array, payment_times_int_array)
 
 
         else:

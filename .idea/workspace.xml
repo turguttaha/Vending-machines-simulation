@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Openai_api verbetern">
-      <change afterPath="$PROJECT_DIR$/simulation_lab/try_get_sales.py" afterDir="false" />
+    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Openai_api and main_gui verbetern">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main_gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/mongodb_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/mongodb_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/openai_key.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/openai_key.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/vending_machines_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/vending_machines_operations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/sales_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/sales_operations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698530325280</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Openai_api and main_gui verbetern">
+      <option name="closed" value="true" />
+      <created>1698588794106</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1698588794106</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -290,6 +296,18 @@
     <MESSAGE value="Reformat code and solved all problems except main.py" />
     <MESSAGE value="Set up hardcore code in gui. En add function check that openai key exists in environment." />
     <MESSAGE value="Openai_api verbetern" />
-    <option name="LAST_COMMIT_MESSAGE" value="Openai_api verbetern" />
+    <MESSAGE value="Openai_api and main_gui verbetern" />
+    <option name="LAST_COMMIT_MESSAGE" value="Openai_api and main_gui verbetern" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/main_gui.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

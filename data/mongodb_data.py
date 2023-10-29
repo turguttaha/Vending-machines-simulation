@@ -1,7 +1,7 @@
-from db_connections.mongodb_connection import *
+from db_connections import mongodb_connection
 
 # Connect to MongoDB once and reuse the connection
-mongodb_instance = MongoDB("mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB", "ChatBotDB")
+mongodb_instance = mongodb_connection.MongoDB("mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB", "ChatBotDB")
 
 
 # get all data
