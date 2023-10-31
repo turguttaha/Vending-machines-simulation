@@ -1,5 +1,4 @@
 import tkinter as tk
-
 from functions import openai_operations
 from functions import vending_machines_operations
 from data import mongodb_data
@@ -62,6 +61,13 @@ class MainGUI:
 
 
 if __name__ == "__main__":
-    root = tk.Tk()
-    app = MainGUI(root)
-    root.mainloop()
+    #If you want to use UI un comment following 3lines codes!
+    # root = tk.Tk()
+    # app = MainGUI(root)
+    # root.mainloop()
+
+    #to use console use following 3 line codes
+
+    while True:
+        message = input("Gebruiker:")
+        print(openai_operations.run_conversation(message))

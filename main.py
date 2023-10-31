@@ -64,6 +64,50 @@ product_list = [
         "description": "without sparkling"
     }
 ]
+product_list_without_quantity = [
+    {
+        "productID": "P001",
+        "name": "Soda",
+        "price": 1.5,
+        "profit percentage": 30,
+        "description": "without aroma"
+    },
+    {
+        "productID": "P002",
+        "name": "Cola",
+        "price": 2.1,
+        "profit percentage": 30,
+        "description": "zero"
+    },
+    {
+        "productID": "P003",
+        "name": "Twix",
+        "price": 1.3,
+        "profit percentage": 30,
+        "description": "120 gr"
+    },
+    {
+        "productID": "P004",
+        "name": "Nutella B-ready",
+        "price": 1.7,
+        "profit percentage": 30,
+        "description": "white chocolate"
+    },
+    {
+        "productID": "P005",
+        "name": "Lays",
+        "price": 2.6,
+        "profit percentage": 30,
+        "description": "spicy"
+    },
+    {
+        "productID": "P006",
+        "name": "Water",
+        "price": 0.9,
+        "profit percentage": 30,
+        "description": "without sparkling"
+    }
+]
 vendingMachineIDs = ["VM001", "VM002", "VM003", "VM004", "VM005", "VM006"]
 
 
@@ -143,8 +187,12 @@ def vending_machines_init():
         counter += 1
 
 
+
+mongodb_instance = mongodb_connection.MongoDB(
+            "mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB",
+            "ChatBotDB")
 def example_sales_init():
-    for i in range(1000):
+    for i in range(9000):
         sales_Data = {
             "timestamp": "1697358096",  # e datetime in UNIX epoch time.
             "product": {
@@ -169,15 +217,19 @@ def example_sales_init():
 
         # rondom.choice(list) --> it select rondom item from list
         sales_Data['paymentMethod'] = random.choice(payment_methodes)
-        sales_Data['product'] = random.choice(product_list)
+        sales_Data['product'] = random.choice(product_list_without_quantity)
 
-        mongodb_connection.add_data("sales-0.1", sales_Data)
+        mongodb_instance .add_data("sales-0.1", sales_Data)
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    # mongodb_instance = mongodb_connection.MongoDB("mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB",
+    #                                               "ChatBotDB")
+    # collection = mongodb_instance.db["sales-0.1"]
+    # result = collection.delete_many({})
     # vending_machines_init()
-    #  example_sales_init()
-    while True:
-        message = input("Gebruiker:")
-        print(run_conversation(message))
+      example_sales_init()
+    # while True:
+    #     message = input("Gebruiker:")
+    #     print(run_conversation(message))
