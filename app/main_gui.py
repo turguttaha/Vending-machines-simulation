@@ -61,12 +61,12 @@ class MainGUI:
 
 
 if __name__ == "__main__":
-    #If you want to use UI un comment following 3lines codes!
+    # If you want to use UI un comment following 3lines codes!
     # root = tk.Tk()
     # app = MainGUI(root)
     # root.mainloop()
 
-    #to use console use following 3 line codes
+    # to use console use following 3 line codes
 
     while True:
         message = input("Gebruiker:")
