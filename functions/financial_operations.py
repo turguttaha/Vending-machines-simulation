@@ -17,7 +17,8 @@ def create_excel_in_certain_period(start_date, end_date):
     ws.title = "MySheet"
 
     # Create titles for columns
-    titles = ["Timestamp", "Product ID", "Name", "Price", "Profit Percentage", "Description", "Payment Method", "Vending Machine ID"]
+    titles = ["Timestamp", "Product ID", "Name", "Price", "Profit Percentage", "Description", "Payment Method",
+              "Vending Machine ID"]
     for col_num, title in enumerate(titles, 1):
         ws.cell(row=1, column=col_num, value=title)
 

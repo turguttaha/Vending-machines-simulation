@@ -1,6 +1,7 @@
 from data import mongodb_data
 from functions.data_convert import *
 
+
 def get_profit_certain_period(start_date, end_date):
     sales = fetch_data_from_db(mongodb_data.mongodb_instance.db["sales-0.1"], start_date, end_date)
     return str(sum(sale["product"]["price"] * sale["product"]["profit percentage"] / 100 for sale in sales))

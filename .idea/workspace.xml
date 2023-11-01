@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="gitignore update">
-      <change afterPath="$PROJECT_DIR$/app/gegeven_van_2021_01_01_tot_2022_12_31.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/functions/data_convert.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/functions/financial_operations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simulation_lab/gegeven_van_2000_1_1_tot_2023_1_1.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simulation_lab/try_create_excel.py" afterDir="false" />
+    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Optimized display errors of fonts on Mac systems,&#10;Simplified the same recurring code and added new&#10;functions. &#10;Our chatbot can create Excel files at specific times.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main_gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mongodb_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/mongodb_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/openai_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/openai_operations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/financial_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/financial_operations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/sales_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/sales_operations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/vending_machines_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/vending_machines_operations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/is_openaiapi_in_environment_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_lab/is_openaiapi_in_environment_setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/try_get_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_lab/try_get_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,28 +62,7 @@
       <recent name="C:\Users\Bingshen\Desktop\Eerste Semester\Innovation lab\GroepOpdrachtVendingMachine\Vending-machines-simulation\db_connections" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="is_openaiapi_in_environment_setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Vending-machines-simulation" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simulation_lab" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simulation_lab/is_openaiapi_in_environment_setup.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.try_get_sales">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Vending-machines-simulation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -182,13 +150,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="try_get_sales" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Vending-machines-simulation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simulation_lab" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simulation_lab/try_get_sales.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.try_get_sales" />
+        <item itemvalue="Python.try_get_data" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.try_create_excel" />
-        <item itemvalue="Python.try_get_data" />
         <item itemvalue="Python.main_gui" />
-        <item itemvalue="Python.is_openaiapi_in_environment_setup" />
       </list>
     </recent_temporary>
   </component>
@@ -341,7 +330,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698770264829</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Optimized display errors of fonts on Mac systems,&#10;Simplified the same recurring code and added new&#10;functions. &#10;Our chatbot can create Excel files at specific times.">
+      <option name="closed" value="true" />
+      <created>1698863927234</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1698863927234</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,6 +372,7 @@
     <MESSAGE value="Optimized the import method" />
     <MESSAGE value="chatbot can payment method in certain period analyze" />
     <MESSAGE value="gitignore update" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore update" />
+    <MESSAGE value="Optimized display errors of fonts on Mac systems,&#10;Simplified the same recurring code and added new&#10;functions. &#10;Our chatbot can create Excel files at specific times." />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimized display errors of fonts on Mac systems,&#10;Simplified the same recurring code and added new&#10;functions. &#10;Our chatbot can create Excel files at specific times." />
   </component>
 </project>
