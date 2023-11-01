@@ -114,7 +114,9 @@ def run_conversation(message):
             **function_args
         )
 
-        if function_response is not None:
+        if function_response is None:
+            return f"Loading function {function_name}..."
+        else:
             # Step 4: send the info on the function call and function response to GPT
             messages.append(response_message)  # extend conversation with assistant's reply
             messages.append(
