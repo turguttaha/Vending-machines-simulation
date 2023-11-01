@@ -115,7 +115,8 @@ def run_conversation(message):
         )
 
         if function_response is None:
-            return f"Loading function {function_name}..."
+            formatted_function_name = function_name.replace('_', ' ')
+            return f"Loading function '{formatted_function_name}'..."
         else:
             # Step 4: send the info on the function call and function response to GPT
             messages.append(response_message)  # extend conversation with assistant's reply

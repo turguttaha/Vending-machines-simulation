@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Optimize excel saving method">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Optimize openai_operations.py,">
       <change beforePath="$PROJECT_DIR$/functions/openai_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/openai_operations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -353,7 +352,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698869304120</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Optimize openai_operations.py,">
+      <option name="closed" value="true" />
+      <created>1698870225026</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1698870225026</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +396,8 @@
     <MESSAGE value="gitignore update" />
     <MESSAGE value="Optimized display errors of fonts on Mac systems,&#10;Simplified the same recurring code and added new&#10;functions. &#10;Our chatbot can create Excel files at specific times." />
     <MESSAGE value="Optimize excel saving method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize excel saving method" />
+    <MESSAGE value="Optimize openai_operations.py," />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize openai_operations.py," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
