@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Optimize openai_operations.py:&#10;Better return value, no longer None, no more underscores">
-      <change afterPath="$PROJECT_DIR$/simulation_lab/simpel_chatbot.py" afterDir="false" />
+    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Add response time test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main_gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulation_lab/try_get_sales.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_lab/try_get_sales.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
       <recent name="C:\Users\Bingshen\Desktop\Eerste Semester\Innovation lab\GroepOpdrachtVendingMachine\Vending-machines-simulation\db_connections" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main_gui">
+  <component name="RunManager" selected="Python.try_get_sales">
     <configuration name="main_gui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Vending-machines-simulation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -172,11 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.try_get_sales" />
+        <item itemvalue="Python.try_get_data" />
         <item itemvalue="Python.main_gui" />
         <item itemvalue="Python.simpel_chatbot" />
         <item itemvalue="Python.try_create_excel" />
-        <item itemvalue="Python.try_get_sales" />
-        <item itemvalue="Python.try_get_data" />
       </list>
     </recent_temporary>
   </component>
@@ -369,7 +368,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698870440009</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add response time test">
+      <option name="closed" value="true" />
+      <created>1698877277759</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1698877277759</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +414,8 @@
     <MESSAGE value="Optimize excel saving method" />
     <MESSAGE value="Optimize openai_operations.py," />
     <MESSAGE value="Optimize openai_operations.py:&#10;Better return value, no longer None, no more underscores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize openai_operations.py:&#10;Better return value, no longer None, no more underscores" />
+    <MESSAGE value="Add response time test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add response time test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
