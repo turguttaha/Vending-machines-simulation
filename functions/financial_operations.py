@@ -1,7 +1,7 @@
 import openpyxl
 from functions.data_convert import *
 from data import mongodb_data
-
+from tkinter import filedialog, Tk
 
 def create_excel_in_certain_period(start_date, end_date):
     # Fetch data from the database
@@ -33,6 +33,10 @@ def create_excel_in_certain_period(start_date, end_date):
         ws.cell(row=row_num, column=7, value=record["paymentMethod"])
         ws.cell(row=row_num, column=8, value=record["vendingMachineID"])
 
-    # Save the workbook
-    filename = f"gegeven_van_{start_date.replace('/', '_')}_tot_{end_date.replace('/', '_')}.xlsx"
-    wb.save(filename)
+    # Use tkinter to choose save location
+    root = Tk()
+    root.withdraw()
+    filename = filedialog.asksaveasfilename(initialfile=f"gegeven_van_{start_date.replace('/', '_')}_tot_{end_date.replace('/', '_')}.xlsx", defaultextension=".xlsx", filetypes=[("Excel files", "*.xlsx"), ("All files", "*.*")])
+
+    if filename:
+        wb.save(filename)

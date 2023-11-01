@@ -7,7 +7,7 @@
     <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Optimized display errors of fonts on Mac systems,&#10;Simplified the same recurring code and added new&#10;functions. &#10;Our chatbot can create Excel files at specific times.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/financial_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/financial_operations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/sales_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/sales_operations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulation_lab/try_create_excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_lab/try_create_excel.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +62,7 @@
       <recent name="C:\Users\Bingshen\Desktop\Eerste Semester\Innovation lab\GroepOpdrachtVendingMachine\Vending-machines-simulation\db_connections" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.try_get_sales">
+  <component name="RunManager" selected="Python.try_create_excel">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Vending-machines-simulation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -173,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.try_create_excel" />
+        <item itemvalue="Python.main_gui" />
         <item itemvalue="Python.try_get_sales" />
         <item itemvalue="Python.try_get_data" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.try_create_excel" />
-        <item itemvalue="Python.main_gui" />
       </list>
     </recent_temporary>
   </component>
@@ -338,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698863927234</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Optimized display errors of fonts on Mac systems,&#10;Simplified the same recurring code and added new&#10;functions. &#10;Our chatbot can create Excel files at specific times.">
+      <option name="closed" value="true" />
+      <created>1698865234616</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1698865234616</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
