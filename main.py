@@ -187,10 +187,11 @@ def vending_machines_init():
         counter += 1
 
 
-
 mongodb_instance = mongodb_connection.MongoDB(
-            "mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB",
-            "ChatBotDB")
+    "mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB",
+    "ChatBotDB")
+
+
 def example_sales_init():
     for i in range(9000):
         sales_Data = {
@@ -219,7 +220,7 @@ def example_sales_init():
         sales_Data['paymentMethod'] = random.choice(payment_methodes)
         sales_Data['product'] = random.choice(product_list_without_quantity)
 
-        mongodb_instance .add_data("sales-0.1", sales_Data)
+        mongodb_instance.add_data("sales-0.1", sales_Data)
 
 
 # Press the green button in the gutter to run the script.
@@ -229,7 +230,7 @@ if __name__ == '__main__':
     # collection = mongodb_instance.db["sales-0.1"]
     # result = collection.delete_many({})
     # vending_machines_init()
-      example_sales_init()
-    # while True:
-    #     message = input("Gebruiker:")
-    #     print(run_conversation(message))
+    example_sales_init()
+# while True:
+#     message = input("Gebruiker:")
+#     print(run_conversation(message))

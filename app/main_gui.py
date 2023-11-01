@@ -54,15 +54,16 @@ class MainGUI:
         #     bot_response = response.choices[0].message["content"]
         #     self.update_chat_history(f"Bot: {bot_response}")
 
-    def update_chat_history(self, message):
+    def update_chat_history(self, user_message):
         self.chat_history.config(state=tk.NORMAL)
-        self.chat_history.insert(tk.END, message + "\n")
+        self.chat_history.insert(tk.END, user_message + "\n")
         self.chat_history.config(state=tk.DISABLED)
 
 
 if __name__ == "__main__":
     # If you want to use UI un comment following 3lines codes!
     # root = tk.Tk()
+    # root.configure(bg='white')
     # app = MainGUI(root)
     # root.mainloop()
 

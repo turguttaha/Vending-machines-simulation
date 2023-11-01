@@ -2,6 +2,7 @@ import json
 import openai
 from functions import sales_operations
 from functions import vending_machines_operations
+from functions import financial_operations
 from datetime import datetime
 
 
@@ -39,7 +40,7 @@ def run_conversation(message):
             },
         },  # 2. add a new functions
         {
-            "name": "payment_methode_analysis_in_certain_period",
+            "name": "analyze_payment_method_in_period",
             "description": """Retrieve different types of payment methods and their respective count in a given date
                            range.""",
             "parameters": {
@@ -57,6 +58,30 @@ def run_conversation(message):
                 "required": ["start_date", "end_date"],
             },
         },
+        {
+            "name": "create_excel_in_certain_period",
+            "description": "Create an excel sheet for sales data within a given date interval.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start date. Format: yyyy/MM/dd",
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End date Format: yyyy/MM/dd"
+                    },
+                },
+                "required": ["start_date", "end_date"],
+            },
+        },
+
+
+
+
+
+
 
     ]
 
@@ -74,11 +99,10 @@ def run_conversation(message):
         # Step 3: call the function
         # Note: the JSON response may not always be valid; be sure to handle errors
 
-
         available_functions = {
             "get_profit_certain_period": sales_operations.get_profit_certain_period,
-            "payment_methode_analysis_in_certain_period": vending_machines_operations
-            .payment_methode_analysis_in_certain_period,
+            "analyze_payment_method_in_period": vending_machines_operations.analyze_payment_method_in_period,
+            "create_excel_in_certain_period": financial_operations.create_excel_in_certain_period,
         }
 
         function_name = response_message["function_call"]["name"]

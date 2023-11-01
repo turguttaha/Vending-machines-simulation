@@ -3,8 +3,8 @@ from data import mongodb_data
 from datetime import datetime
 
 
-def payment_methode_analysis(payment_methode_str_array, payment_times_int_array, start_date=None, end_date=None):
-    plt.rcParams['font.sans-serif'] = ['SimHei']
+def analyze_payment_method_in_table(payment_methode_str_array, payment_times_int_array, start_date=None, end_date=None):
+    plt.rcParams['font.sans-serif'] = ['Arial']
     plt.rcParams['axes.unicode_minus'] = False
 
     if start_date and end_date:
@@ -18,18 +18,17 @@ def payment_methode_analysis(payment_methode_str_array, payment_times_int_array,
     plt.show()
 
 
-def payment_methode_analysis_in_certain_period(start_date, end_date):
+def analyze_payment_method_in_period(start_date, end_date):
+    # Ensure the dates are in the correct format
+    try:
+        datetime.strptime(start_date, "%Y/%m/%d")
+        datetime.strptime(end_date, "%Y/%m/%d")
+    except ValueError:
+        raise ValueError("The date format is incorrect. Expected format: %Y/%m/%d")
 
-    # Parse the datetime string into a datetime object
-    start_date_datetime = datetime.strptime(start_date, "%Y/%m/%d")
-    end_date_datetime = datetime.strptime(end_date, "%Y/%m/%d")
+    # Fetch the payment methods and their counts for the given period using string dates
+    payment_method_str_array, payment_times_int_array = mongodb_data.get_payment_and_times_in_certain_period(start_date,
+                                                                                                             end_date)
 
-
-    # Convert it to Epoch timestamp
-
-    start_epoch_timestamp = start_date_datetime.timestamp()
-    end_epoch_timestamp = end_date_datetime.timestamp()
-
-    payment_method_str_array, payment_times_int_array = mongodb_data.get_payment_and_times_in_certain_period(start_epoch_timestamp,
-                                                                                                             end_epoch_timestamp)
-    payment_methode_analysis(payment_method_str_array, payment_times_int_array, start_date, end_date)
+    # Analyze the payment methods
+    analyze_payment_method_in_table(payment_method_str_array, payment_times_int_array, start_date, end_date)
