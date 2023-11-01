@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Optimize openai_operations.py,">
-      <change beforePath="$PROJECT_DIR$/functions/openai_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/openai_operations.py" afterDir="false" />
+    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Optimize openai_operations.py:&#10;Better return value, no longer None, no more underscores">
+      <change afterPath="$PROJECT_DIR$/simulation_lab/simpel_chatbot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main_gui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,28 +63,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main_gui">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Vending-machines-simulation" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="main_gui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Vending-machines-simulation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,6 +77,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/main_gui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="simpel_chatbot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Vending-machines-simulation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simulation_lab" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simulation_lab/simpel_chatbot.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -172,10 +173,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main_gui" />
+        <item itemvalue="Python.simpel_chatbot" />
         <item itemvalue="Python.try_create_excel" />
         <item itemvalue="Python.try_get_sales" />
         <item itemvalue="Python.try_get_data" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -360,7 +361,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698870225026</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Optimize openai_operations.py:&#10;Better return value, no longer None, no more underscores">
+      <option name="closed" value="true" />
+      <created>1698870440009</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1698870440009</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +406,8 @@
     <MESSAGE value="Optimized display errors of fonts on Mac systems,&#10;Simplified the same recurring code and added new&#10;functions. &#10;Our chatbot can create Excel files at specific times." />
     <MESSAGE value="Optimize excel saving method" />
     <MESSAGE value="Optimize openai_operations.py," />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize openai_operations.py," />
+    <MESSAGE value="Optimize openai_operations.py:&#10;Better return value, no longer None, no more underscores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize openai_operations.py:&#10;Better return value, no longer None, no more underscores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

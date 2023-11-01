@@ -1,8 +1,8 @@
+import time
 import tkinter as tk
-from functions import openai_operations
-from functions import vending_machines_operations
-from data import mongodb_data
+
 from data.openai_key import *
+from functions import openai_operations
 
 setup_openai_key()
 
@@ -71,4 +71,10 @@ if __name__ == "__main__":
 
     while True:
         message = input("Gebruiker:")
+        user_message_timestamp = time.time()
+
         print(openai_operations.run_conversation(message))
+
+        bot_response_timestamp = time.time()
+        response_time = bot_response_timestamp - user_message_timestamp
+        print(f"Response time: {response_time} seconds")
