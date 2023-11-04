@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Add response time test">
+    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="Add params">
+      <change afterPath="$PROJECT_DIR$/functions/update_vending_machine_operations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/try_get_sales.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_lab/try_get_sales.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mongodb_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/mongodb_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Branch_VR" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
@@ -38,22 +44,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bingshen/Desktop/tet/Vending-machines-simulation&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Bingshen/Desktop/tet/Vending-machines-simulation",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Bingshen\Desktop\Eerste Semester\Innovation lab\GroepOpdrachtVendingMachine\Vending-machines-simulation\funcions" />
@@ -176,9 +182,9 @@
       <list>
         <item itemvalue="Python.try_get_sales" />
         <item itemvalue="Python.try_get_data" />
-        <item itemvalue="Python.main_gui" />
-        <item itemvalue="Python.simpel_chatbot" />
         <item itemvalue="Python.try_create_excel" />
+        <item itemvalue="Python.simpel_chatbot" />
+        <item itemvalue="Python.main_gui" />
       </list>
     </recent_temporary>
   </component>
@@ -194,6 +200,7 @@
       <workItem from="1698748532067" duration="8000" />
       <workItem from="1698752522933" duration="233000" />
       <workItem from="1698752758417" duration="1926000" />
+      <workItem from="1699101676637" duration="7509000" />
     </task>
     <task id="LOCAL-00001" summary="Init Gitignore">
       <option name="closed" value="true" />
@@ -379,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698877277759</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add params">
+      <option name="closed" value="true" />
+      <created>1698935915838</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1698935915838</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,7 +433,8 @@
     <MESSAGE value="Optimize openai_operations.py," />
     <MESSAGE value="Optimize openai_operations.py:&#10;Better return value, no longer None, no more underscores" />
     <MESSAGE value="Add response time test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add response time test" />
+    <MESSAGE value="Add params" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add params" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
