@@ -1,4 +1,4 @@
-#Vending machine data ophalen
+# Vending machine data ophalen
 from random import random
 
 from main import product_list, example_sales_init
@@ -23,6 +23,7 @@ def automatic_purchase(product_id, quantity_to_buy, product_data=None):
             return f"Purchased {quantity_to_buy} units of {product_data['product_name']}."
 
     return "Product not available or insufficient inventory."
+
 
 def analyze_products_sold(inventory_collection=None):
     # Connect to your MongoDB and retrieve sales data and product inventory
@@ -50,4 +51,3 @@ def analyze_products_sold(inventory_collection=None):
         product_summary.append(f"{product_name}: {quantity_sold} units sold")
 
     return product_summary
-

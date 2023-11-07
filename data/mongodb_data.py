@@ -1,9 +1,10 @@
 from db_connections import mongodb_connection
-from functions.data_convert import *
+from functions.data_convert_operations import *
 
 # Connect to MongoDB once and reuse the connection
 mongodb_instance = mongodb_connection.MongoDB("mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB",
                                               "ChatBotDB")
+
 
 # get all data
 def get_all_data():
@@ -11,10 +12,12 @@ def get_all_data():
     cursor = collection.find({})
     return cursor
 
+
 def get_vending_machine_data():
     collection = mongodb_instance.db["ChatBotDB.ChatBotDB-Release-0.1"]
     cursor = collection.find({})
     return cursor
+
 
 def get_all_payment_and_times():
     payment_method_str_array = []

@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from data import mongodb_data
 from datetime import datetime
-
+plt.use('TkAgg')
 
 def analyze_payment_method_in_table(payment_methode_str_array, payment_times_int_array, start_date=None, end_date=None):
     plt.rcParams['font.sans-serif'] = ['Arial']

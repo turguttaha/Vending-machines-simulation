@@ -1,13 +1,13 @@
 from datetime import time
-from bson.objectid import ObjectId
 
 from data import mongodb_data
-from db_connections import mongodb_connection
-from functions.data_convert import *
 
 vending_machine_state = mongodb_data.mongodb_instance.db["ChatBotDB.ChatBotDB-Release-0.1"]
+
+
 def update_vending_machine_state(machine_id, new_state):
     vending_machine_state.update_one({"vendingMachineID": machine_id}, {"$set": {"status": new_state}})
+
 
 def create_new_sales_object(machine_id, products, paymentmethod):
     sales = mongodb_data.mongodb_instance.db["sales-0.1"]
@@ -45,6 +45,7 @@ def get_new_state_from_machine(machine_id):
     else:
         return "OUT_OF_ORDER"
 
+
 while True:
     machine_lists = list(vending_machine_state.find())
 
@@ -55,7 +56,7 @@ while True:
 
         # Check if a sale has been made
         if new_state == "SOLD":
-            #product_name, price = get_product_name_and_price_from_machine(machine)
+            # product_name, price = get_product_name_and_price_from_machine(machine)
             create_new_sales_object(machine_id)
 
     # Wait for 15 minutes before updating the vending machines again

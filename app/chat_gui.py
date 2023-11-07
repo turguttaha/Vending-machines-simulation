@@ -1,5 +1,6 @@
 import time
 import tkinter as tk
+import threading
 
 from data.openai_key import *
 from functions import openai_operations
@@ -7,14 +8,25 @@ from functions import openai_operations
 setup_openai_key()
 
 
-class MainGUI:
-    def __init__(self, main_root):
+class ChatGUI:
+    def __init__(self, main_root, username, bedrijfname):
         self.root = main_root
+        self.current_username = username
+        self.current_bedrijfname = bedrijfname
         self.root.title("ChatBot")
 
-        # Create chat history text box
-        self.chat_history = tk.Text(main_root, state=tk.DISABLED)
-        self.chat_history.pack()
+        # Clear previous UI
+        for widget in self.root.winfo_children():
+            widget.destroy()
+
+        # Create chat history text box with horizontal scrollbar
+        self.chat_history = tk.Text(main_root, state=tk.DISABLED, wrap=tk.WORD)
+        self.chat_history.pack(expand=True, fill=tk.BOTH)
+
+        # Create the horizontal scrollbar
+        scrollbar = tk.Scrollbar(main_root, orient=tk.HORIZONTAL, command=self.chat_history.xview)
+        scrollbar.pack(side=tk.BOTTOM, fill=tk.X)
+        self.chat_history['xscrollcommand'] = scrollbar.set
 
         # Create the Frame where the user input box and send button are located
         input_frame = tk.Frame(main_root)
@@ -30,33 +42,20 @@ class MainGUI:
 
     def send_message(self):
         user_message = self.user_input.get()
+        self.update_chat_history(f"{self.current_username}: {user_message}")
         self.user_input.delete(0, tk.END)
-        self.update_chat_history(f"You: {user_message}")
 
-        # Use this code instead of the following
+        # Start a thread for bot response to avoid freezing the GUI
+        threading.Thread(target=self.get_bot_response, args=(user_message,)).start()
+
+    def get_bot_response(self, user_message):
         bot_response = openai_operations.run_conversation(user_message)
-        self.update_chat_history(f"Bot: {bot_response}")
+        self.update_chat_history(f"{self.current_bedrijfname}_ChatBot: {bot_response}")
 
-        # if ("payment" in user_message.lower()) or ("betaal" in user_message.lower()):
-        #     payment_method_str_array, payment_times_int_array = mongodb_data.get_all_payment_and_times()
-        #     vending_machines_operations.payment_methode_analysis(payment_method_str_array, payment_times_int_array)
-        #
-        #
-        # else:
-        #     response = openai.ChatCompletion.create(
-        #         model="gpt-3.5-turbo-0613",
-        #         messages=[
-        #             {"role": "system", "content": "You are a helpful assistant."},
-        #             {"role": "user", "content": user_message}
-        #         ]
-        #     )
-        #
-        #     bot_response = response.choices[0].message["content"]
-        #     self.update_chat_history(f"Bot: {bot_response}")
-
-    def update_chat_history(self, user_message):
+    def update_chat_history(self, message):
         self.chat_history.config(state=tk.NORMAL)
-        self.chat_history.insert(tk.END, user_message + "\n")
+        self.chat_history.insert(tk.END, message + "\n")
+        self.chat_history.yview(tk.END)  # Auto-scrolls to the end
         self.chat_history.config(state=tk.DISABLED)
 
 
@@ -64,7 +63,7 @@ if __name__ == "__main__":
     # If you want to use UI un comment following 3lines codes!
     # root = tk.Tk()
     # root.configure(bg='white')
-    # app = MainGUI(root)
+    # app = ChatGUI(root)
     # root.mainloop()
 
     # to use console use following 3 line codes
@@ -73,7 +72,7 @@ if __name__ == "__main__":
         message = input("Gebruiker:")
         user_message_timestamp = time.time()
 
-        print(openai_operations.run_conversation(message))
+        print("Chatbot" + openai_operations.run_conversation(message))
 
         bot_response_timestamp = time.time()
         response_time = bot_response_timestamp - user_message_timestamp

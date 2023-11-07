@@ -1,23 +1,32 @@
 import json
+from datetime import datetime
+
 import openai
+
+from functions import financial_operations
 from functions import sales_operations
 from functions import vending_machines_operations
-from functions import financial_operations
-from datetime import datetime
 
 
 def run_conversation(message):
     # Step 1: send the conversation and available functions to GPT
     messages = [
-        {"role": "system", "content":
-            """You are analyzer for vending machine database. Your name is analyzer.
-            Currency is euro €.
-            Our company operations has started on 2020/01/01.
-            You will use predefined function to analyze them and answer to user. 
-            Don't make assumptions about what values to plug into functions. 
-            Ask for clarification if a user request is ambiguous.
-            Today is""" + str(datetime.now().date())},
-        {"role": "user", "content": message}]
+        {
+            "role": "system",
+            "content":
+                f"""
+                    Your name is analyzer.
+                    You are a friendly analyzer for the vending machine database.
+                    Always respond to the user with an appropriate emoticon that reflects the sentiment of their message.
+                    Your response format should be an emoticon followed by a colon and space, then your reply in this manner "(😊): Your reply".
+                    The currency is in euros €.
+                    Our company operations started on 2020/01/01.
+                    Do not make assumptions about what values to plug into functions.
+                    Ask for clarification if a user's request is ambiguous.
+                    Today is {str(datetime.now().date())}
+                """
+        },
+        {"role": "user", "content": "(😊): " + message}]
     # Predefined functions
     functions = [
         # introduction of functions to AI
@@ -77,8 +86,6 @@ def run_conversation(message):
             },
         },
 
-
-
         ################
         {
             "name": "get_most_sold_items",
@@ -119,9 +126,6 @@ def run_conversation(message):
         },
         ################
 
-
-
-
     ]
 
     # Request to the gpt-3.5
@@ -143,10 +147,10 @@ def run_conversation(message):
             "analyze_payment_method_in_period": vending_machines_operations.analyze_payment_method_in_period,
             "create_excel_in_certain_period": financial_operations.create_excel_in_certain_period,
 
-            #####################IMDAT
+            #  ####################IMDAT
             "get_most_sold_items": sales_operations.get_most_sold_items,
             "get_most_profitable_product": sales_operations.get_most_profitable_product,
-            #####################IMDAT
+            #  ####################IMDAT
         }
 
         function_name = response_message["function_call"]["name"]
