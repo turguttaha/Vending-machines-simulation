@@ -15,3 +15,4 @@ def fetch_data_from_db(collection, start_date, end_date):
         }
     }
     return list(collection.find(query))
+

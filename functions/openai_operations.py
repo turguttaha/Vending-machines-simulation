@@ -79,6 +79,45 @@ def run_conversation(message):
 
 
 
+        ################
+        {
+            "name": "get_most_sold_items",
+            "description": "Get the most sold items in the given date interval.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start date. Format: yyyy/MM/dd",
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End date Format: yyyy/MM/dd"
+                    },
+                },
+                "required": ["start_date", "end_date"],
+            },
+        },
+
+        {
+            "name": "get_most_profitable_product",
+            "description": "Get the most profitable item in the given date interval.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start date. Format: yyyy/MM/dd",
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End date Format: yyyy/MM/dd"
+                    },
+                },
+                "required": ["start_date", "end_date"],
+            },
+        },
+        ################
 
 
 
@@ -103,6 +142,11 @@ def run_conversation(message):
             "get_profit_certain_period": sales_operations.get_profit_certain_period,
             "analyze_payment_method_in_period": vending_machines_operations.analyze_payment_method_in_period,
             "create_excel_in_certain_period": financial_operations.create_excel_in_certain_period,
+
+            #####################IMDAT
+            "get_most_sold_items": sales_operations.get_most_sold_items,
+            "get_most_profitable_product": sales_operations.get_most_profitable_product,
+            #####################IMDAT
         }
 
         function_name = response_message["function_call"]["name"]
