@@ -1,6 +1,6 @@
+import threading
 import time
 import tkinter as tk
-import threading
 
 from data.openai_key import *
 from functions import openai_operations
@@ -23,6 +23,9 @@ class ChatGUI:
         self.chat_history = tk.Text(main_root, state=tk.DISABLED, wrap=tk.WORD)
         self.chat_history.pack(expand=True, fill=tk.BOTH)
 
+        self.chat_history.tag_configure('user', background='white')
+        self.chat_history.tag_configure('bot', background='gray')
+
         # Create the horizontal scrollbar
         scrollbar = tk.Scrollbar(main_root, orient=tk.HORIZONTAL, command=self.chat_history.xview)
         scrollbar.pack(side=tk.BOTTOM, fill=tk.X)
@@ -35,26 +38,26 @@ class ChatGUI:
         # Create user input box
         self.user_input = tk.Entry(input_frame)
         self.user_input.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.user_input.bind("<Return>", self.send_message)
 
         # Create a send button
         self.send_button = tk.Button(input_frame, text="Send", command=self.send_message)
         self.send_button.pack(side=tk.RIGHT)
 
-    def send_message(self):
+    def send_message(self, event=None):
         user_message = self.user_input.get()
-        self.update_chat_history(f"{self.current_username}: {user_message}")
+        self.update_chat_history(f"{self.current_username}: {user_message}", 'user')
         self.user_input.delete(0, tk.END)
-
-        # Start a thread for bot response to avoid freezing the GUI
         threading.Thread(target=self.get_bot_response, args=(user_message,)).start()
 
     def get_bot_response(self, user_message):
         bot_response = openai_operations.run_conversation(user_message)
-        self.update_chat_history(f"{self.current_bedrijfname}_ChatBot: {bot_response}")
+        self.chat_history.after(0, self.update_chat_history, f"{self.current_bedrijfname}_ChatBot: {bot_response}",
+                                'bot')
 
-    def update_chat_history(self, message):
+    def update_chat_history(self, message, message_type):
         self.chat_history.config(state=tk.NORMAL)
-        self.chat_history.insert(tk.END, message + "\n")
+        self.chat_history.insert(tk.END, message + "\n", message_type)
         self.chat_history.yview(tk.END)  # Auto-scrolls to the end
         self.chat_history.config(state=tk.DISABLED)
 
