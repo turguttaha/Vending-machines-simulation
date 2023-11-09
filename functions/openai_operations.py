@@ -124,6 +124,36 @@ def run_conversation(message):
                 "required": ["start_date", "end_date"],
             },
         },
+        {
+            "name": "calculate_most_profitable_machine",
+            "description": "Calculate the most profitable vending machine within a specified date range.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start date. Format: yyyy/MM/dd",
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End date Format: yyyy/MM/dd",
+                    },
+                },
+                "required": ["start_date", "end_date"],
+            },
+        },
+        {
+            "name": "quantity_low_message",
+            "description": """ Check the database for vending machines with products quantities <= 5
+                              """,
+            "parameters": {
+                "type": "object",
+                "properties": {
+
+                },
+
+            },
+        },
         ################
 
     ]
@@ -151,6 +181,8 @@ def run_conversation(message):
             "get_most_sold_items": sales_operations.get_most_sold_items,
             "get_most_profitable_product": sales_operations.get_most_profitable_product,
             #  ####################IMDAT
+            "calculate_most_profitable_machine": sales_operations.calculate_most_profitable_machine,
+            "quantity_low_message": vending_machines_operations.quantity_low_message,
         }
 
         function_name = response_message["function_call"]["name"]

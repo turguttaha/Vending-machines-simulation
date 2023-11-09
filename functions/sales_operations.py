@@ -68,3 +68,39 @@ def get_most_profitable_product(start_date, end_date):
     return most_profitable_product_id
 
 ###########################################
+def calculate_most_profitable_machine(start_date, end_date ):
+    start_date_datetime = datetime.strptime(start_date, "%Y/%m/%d")
+    end_date_datetime = datetime.strptime(end_date, "%Y/%m/%d")
+
+    # Convert it to Epoch timestamp
+
+    start_epoch_timestamp = start_date_datetime.timestamp()
+    end_epoch_timestamp = end_date_datetime.timestamp()
+
+    sales_collection = mongodb_data.mongodb_instance.db["sales-0.1"]
+
+    most_profitable_machine = None
+    max_profit = 0
+
+    for vendingMachineID in sales_collection.distinct("vendingMachineID"):
+        # Calculate profit for the specified time period
+        cursor = sales_collection.find({
+            "vendingMachineID": vendingMachineID,
+            "timestamp": {"$gte": start_epoch_timestamp, "$lte": end_epoch_timestamp}
+        })
+        profit = sum(doc["product"]["price"] * doc["product"]["profit percentage"] /100 for doc in cursor)
+
+        if profit > max_profit:
+            max_profit = profit
+            most_profitable_machine = vendingMachineID
+
+    vending_machine_collection = mongodb_data.mongodb_instance.db["Vending-Machines-0.1"]
+
+    found_vm = vending_machine_collection.find({"vendingMachineID": most_profitable_machine})
+    location = found_vm[0]["location"]
+
+
+    return f"Vending Machine Located in : {location},with the given ID  :{most_profitable_machine},has Profit of :{max_profit}"
+# can be this as well profit = sum(doc["sales_amount"] * 0.3 for doc in cursor)
+#Most profitable machine is located:{location}
+
