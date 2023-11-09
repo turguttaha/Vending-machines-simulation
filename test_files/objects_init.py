@@ -5,12 +5,13 @@
 # libraries of the python
 import random
 import time
+from data import mongodb_data
 # another class to connect db and add, get, update, delete some objects
 from db_connections import mongodb_connection
-from functions.openai_operations import *
 
-import data.openai_key
-
+mongodb_instance = mongodb_connection.MongoDB(
+    "mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB",
+    "ChatBotDB")
 # lists which are using during foreach loop
 locations = ["UCLL Hertogstraat", "UCLL Proximus", "ING", "Leuven Public Library", "KU Leuven Library", "KBC"]
 payment_methodes = ["cash", "creditcard", "bankcontact"]
@@ -182,14 +183,12 @@ def vending_machines_init():
         # print(vending_machines_data)
 
         # adding object to db using mongodb_connection.py(parameters collection name , newData to add)
-        mongodb_connection.add_data("ChatBotDB-Release-0.1", vending_machines_data)
+        mongodb_instance.add_data("Vending-Machines-0.1", vending_machines_data)
 
         counter += 1
 
 
-mongodb_instance = mongodb_connection.MongoDB(
-    "mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB",
-    "ChatBotDB")
+
 
 
 def example_sales_init():
@@ -225,12 +224,15 @@ def example_sales_init():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    value = "test"
+    for data in mongodb_data.get_all_vending_machines():
+        print(data)
     # mongodb_instance = mongodb_connection.MongoDB("mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/ChatBotDB",
     #                                               "ChatBotDB")
     # collection = mongodb_instance.db["sales-0.1"]
     # result = collection.delete_many({})
-    # vending_machines_init()
-    example_sales_init()
+     #vending_machines_init()
+    #example_sales_init()
 # while True:
 #     message = input("Gebruiker:")
 #     print(run_conversation(message))

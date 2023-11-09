@@ -1,4 +1,4 @@
-from functions.sales_operations import *
+from services.sales_operations import *
 import time
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from app.chat_gui import *
-from functions import financial_operations
+from services import financial_operations
 from pymongo import MongoClient
 
 class SelectionGUI:

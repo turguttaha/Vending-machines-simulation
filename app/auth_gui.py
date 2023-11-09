@@ -1,13 +1,49 @@
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-
+import time
+import tkinter as tk
+from simulation_lab.vending_machines_simulations import sell_item_from_all_vm
+from simulation_lab.vending_machines_simulations import reload_vm
+from config.openai_key import *
+from ai_module import openai_operations
+import asyncio
+import threading
+import tracemalloc
 from app.selection_gui import *
 
 # Initialize Firebase
 cred = credentials.Certificate('..\config\chatbot-2c28b-firebase-adminsdk-eoj2u-af1dbe56f8.json')
 firebase_admin.initialize_app(cred)
 db = firestore.client()
+
+
+def simulate_vm_operations():
+
+    while True:
+        sell_item_from_all_vm()
+        # Wait for 1 minutes
+        time.sleep(60)
+
+
+def reload_machines():
+    while True:
+        reload_vm()
+        # Wait for 4 minutes
+        time.sleep(240)
+
+
+# Enable tracemalloc
+tracemalloc.start()
+
+# Create a thread for the background loop
+background_thread1 = threading.Thread(target=simulate_vm_operations)
+background_thread2 = threading.Thread(target=reload_machines)
+
+
+# Start the thread
+background_thread1.start()
+background_thread2.start()
 
 
 class AuthGUI:

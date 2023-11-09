@@ -2,8 +2,8 @@ import threading
 import time
 import tkinter as tk
 
-from data.openai_key import *
-from functions import openai_operations
+from config.openai_key import *
+from ai_module import openai_operations
 
 setup_openai_key()
 
@@ -20,16 +20,17 @@ class ChatGUI:
             widget.destroy()
 
         # Create chat history text box with horizontal scrollbar
-        self.chat_history = tk.Text(main_root, state=tk.DISABLED, wrap=tk.WORD)
+        self.chat_history = tk.Text(main_root, state=tk.DISABLED, wrap=tk.WORD,padx=(20),pady=(7))
         self.chat_history.pack(expand=True, fill=tk.BOTH)
 
         self.chat_history.tag_configure('user', background='white')
-        self.chat_history.tag_configure('bot', background='gray')
+        self.chat_history.tag_configure('bot', background='#f7f7f7')
 
         # Create the horizontal scrollbar
         scrollbar = tk.Scrollbar(main_root, orient=tk.HORIZONTAL, command=self.chat_history.xview)
         scrollbar.pack(side=tk.BOTTOM, fill=tk.X)
         self.chat_history['xscrollcommand'] = scrollbar.set
+
 
         # Create the Frame where the user input box and send button are located
         input_frame = tk.Frame(main_root)
@@ -62,21 +63,21 @@ class ChatGUI:
         self.chat_history.config(state=tk.DISABLED)
 
 
-if __name__ == "__main__":
-    # If you want to use UI un comment following 3lines codes!
-    # root = tk.Tk()
-    # root.configure(bg='white')
-    # app = ChatGUI(root)
-    # root.mainloop()
+# if __name__ == "__main__":
+#     # If you want to use UI un comment following 3lines codes!
+#     root = tk.Tk()
+#     root.configure(bg='white')
+#     app = ChatGUI(root)
+#     root.mainloop()
 
     # to use console use following 3 line codes
 
-    while True:
-        message = input("Gebruiker:")
-        user_message_timestamp = time.time()
-
-        print("Chatbot" + openai_operations.run_conversation(message))
-
-        bot_response_timestamp = time.time()
-        response_time = bot_response_timestamp - user_message_timestamp
-        print(f"Response time: {response_time} seconds")
+    # while True:
+    #     message = input("Gebruiker:")
+    #     user_message_timestamp = time.time()
+    #
+    #     print("Chatbot" + openai_operations.run_conversation(message))
+    #
+    #     bot_response_timestamp = time.time()
+    #     response_time = bot_response_timestamp - user_message_timestamp
+    #     print(f"Response time: {response_time} seconds")

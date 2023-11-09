@@ -1,15 +1,14 @@
 from tkinter import filedialog, Tk
-
+from data.data_convert import *
 import openpyxl
-
 from data import mongodb_data
-from functions.data_convert_operations import *
+
 
 
 def create_excel_in_certain_period(start_date, end_date):
     # Fetch data from the database
-    collection = mongodb_data.mongodb_instance.db["sales-0.1"]
-    results = fetch_data_from_db(collection, start_date, end_date)
+    #collection = mongodb_data.mongodb_instance.db["sales-0.1"]
+    results = mongodb_data.get_data_between_two_date("sales-0.1", start_date, end_date)
 
     # Sort the results by timestamp, and then by product name
     results.sort(key=lambda x: (x["timestamp"], x["product"]["name"]))

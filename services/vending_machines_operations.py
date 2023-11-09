@@ -1,5 +1,4 @@
-from multiprocessing.connection import Client
-
+from twilio.rest import Client
 import matplotlib.pyplot as plt
 import matplotlib
 import pymongo
@@ -11,39 +10,22 @@ from data.mongodb_data import get_vending_machine_data
 
 matplotlib.use('TkAgg')
 
-
-def analyze_payment_method_in_table(payment_methode_str_array, payment_times_int_array, start_date=None, end_date=None):
-    plt.rcParams['font.sans-serif'] = ['Arial']
-    plt.rcParams['axes.unicode_minus'] = False
-
-    if start_date and end_date:
-        # start_date_str = datetime.fromtimestamp(start_date).strftime('%Y-%m-%d')
-        # end_date_str = datetime.fromtimestamp(end_date).strftime('%Y-%m-%d')
-        plt.title(f"Betaalmethode Analiseren van {start_date} tot {end_date}")
+def change_status_vm_to_out_of_order(vendingMachineID):
+    check= mongodb_data.update_vm_attribute("vendingMachineID",vendingMachineID,"status","out of order")
+    if check.modified_count ==1:
+        return f"Vending machine with id {vendingMachineID} is now out of order! "
     else:
-        plt.title("Betaalmethode Analiseren")
+        return "No vending machine matching this id number was found"
+def change_status_vm_to_working(vendingMachineID):
+    check= mongodb_data.update_vm_attribute("vendingMachineID",vendingMachineID,"status","working")
+    if check.modified_count ==1:
+        return f"Vending machine with id {vendingMachineID} is now working! "
+    else:
+        return "No vending machine matching this id number was found"
 
-    plt.bar(payment_methode_str_array, payment_times_int_array)
-    plt.show()
 
-
-def analyze_payment_method_in_period(start_date, end_date):
-    # Ensure the dates are in the correct format
-    try:
-        datetime.strptime(start_date, "%Y/%m/%d")
-        datetime.strptime(end_date, "%Y/%m/%d")
-    except ValueError:
-        raise ValueError("The date format is incorrect. Expected format: %Y/%m/%d")
-
-    # Fetch the payment methods and their counts for the given period using string dates
-    payment_method_str_array, payment_times_int_array = mongodb_data.get_payment_and_times_in_certain_period(start_date,
-                                                                                                             end_date)
-
-    # Analyze the payment methods
-    analyze_payment_method_in_table(payment_method_str_array, payment_times_int_array, start_date, end_date)
 def quantity_low_message():
 
-    client = pymongo.MongoClient("mongodb+srv://yasir:chatBot@chatbot.nrdo6xw.mongodb.net/")
     collection = mongodb_data.mongodb_instance.db["Vending-Machines-0.1"]
 
     # Define the aggregation pipeline
@@ -78,8 +60,8 @@ def quantity_low_message():
 
     # Execute the aggregation query
     result = list(collection.aggregate(pipeline))
-    account_sid = 'AC40db2b8f896e5642cc81a0ca6ab7131e'
-    auth_token = '2fc5915e3f00ae22279ea818bd0cc0fc'
+    account_sid = 'ACb01999e9dfdd51a3f26e1c4076777e7f'
+    auth_token = '7a0077352b970daa2f65fe27667ed130'
     client = Client(account_sid, auth_token)
 
     for info in result:
@@ -95,7 +77,7 @@ def quantity_low_message():
             from_='whatsapp:+14155238886',
             body='Product quantity is low: ' + ', '.join(
                 [f"{vending_machineid}:{product['name']}: {product['quantity']}" for product in products_info]),
-             to='whatsapp:+32466162282'
+             to='whatsapp:+32493350344'
         )
 
         print("Quantity low message sent. SID:", message.sid)

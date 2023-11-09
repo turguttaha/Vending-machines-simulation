@@ -3,9 +3,9 @@ from datetime import datetime
 
 import openai
 
-from functions import financial_operations
-from functions import sales_operations
-from functions import vending_machines_operations
+from services import financial_operations
+from services import sales_operations
+from services import vending_machines_operations
 
 
 def run_conversation(message):
@@ -86,10 +86,9 @@ def run_conversation(message):
             },
         },
 
-        ################
         {
             "name": "get_most_sold_items",
-            "description": "Get the most sold items in the given date interval.",
+            "description": "Get the most sold items with amount in the given date interval.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -154,7 +153,34 @@ def run_conversation(message):
 
             },
         },
-        ################
+        {
+            "name": "change_status_vm_to_out_of_order",
+            "description": "It changes status of the vending machine as out of order.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "vendingMachineID": {
+                        "type": "string",
+                        "description": "Vending machine id which is provided by user!",
+                    },
+                },
+                "required": ["vendingMachineID"],
+            },
+        },
+        {
+            "name": "change_status_vm_to_working",
+            "description": "It changes status of the vending machine as working.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "vendingMachineID": {
+                        "type": "string",
+                        "description": "Vending machine id which is provided by user!",
+                    },
+                },
+                "required": ["vendingMachineID"],
+            },
+        },
 
         {
             "name": "get_vending_machine_info",
@@ -174,7 +200,7 @@ def run_conversation(message):
 
     # Request to the gpt-3.5
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-0613",
+        model="gpt-4-1106-preview",
         messages=messages,
         functions=functions,
         function_call="auto",  # auto is default, but we'll be explicit
@@ -188,14 +214,13 @@ def run_conversation(message):
 
         available_functions = {
             "get_profit_certain_period": sales_operations.get_profit_certain_period,
-            "analyze_payment_method_in_period": vending_machines_operations.analyze_payment_method_in_period,
+            "analyze_payment_method_in_period": sales_operations.analyze_payment_method_in_period,
             "create_excel_in_certain_period": financial_operations.create_excel_in_certain_period,
             "get_vending_machine_info": vending_machines_operations.get_vending_machine_info,
-
-            #  ####################IMDAT
+            "change_status_vm_to_out_of_order": vending_machines_operations.change_status_vm_to_out_of_order,
+            "change_status_vm_to_working": vending_machines_operations.change_status_vm_to_working,
             "get_most_sold_items": sales_operations.get_most_sold_items,
             "get_most_profitable_product": sales_operations.get_most_profitable_product,
-            #  ####################IMDAT
             "calculate_most_profitable_machine": sales_operations.calculate_most_profitable_machine,
             "quantity_low_message": vending_machines_operations.quantity_low_message,
         }
@@ -223,7 +248,7 @@ def run_conversation(message):
                 }
             )  # extend conversation with function response
             second_response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo-0613",
+                model="gpt-4-1106-preview",
                 messages=messages,
             )  # get a new response from GPT where it can see the function response
             second_response_message = second_response["choices"][0]["message"]

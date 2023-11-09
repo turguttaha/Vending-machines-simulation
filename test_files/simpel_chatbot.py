@@ -1,6 +1,6 @@
 import time
 
-from data.openai_key import *
+from config.openai_key import *
 
 setup_openai_key()
 
