@@ -4,39 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="add function get_most_sold_items&#10;add function get_most_profitable_product">
-      <change afterPath="$PROJECT_DIR$/services/sales_operations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simulation_lab/vending_machines_simulations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_files/main_gui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_files/try_get_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Vending-machines-simulation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Vending-machines-simulation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="check all files&#10;made better file structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VendingMachineAuto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth_gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/chat_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/chat_gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/selection_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/selection_gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/example_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/example_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mongodb_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/mongodb_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/openai_key.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/openai_key.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_connections/mongodb_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_connections/mongodb_connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/data_convert_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/data_convert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/financial_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/financial_operations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/openai_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_module/openai_operations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/sales_operations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/system_operations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/update_vending_machine_operations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/vending_machines_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/vending_machines_operations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/objects_init.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/gegeven_van_2021_2_1_tot_2021_3_1.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/is_openaiapi_in_environment_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/is_openaiapi_in_environment_setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/pilot.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/pilot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/simpel_chatbot.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/simpel_chatbot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/try.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/try.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/try_create_excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/try_create_excel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/try_get_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/try_get_sales.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/try_get_sales.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_lab/try_read_execl.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/try_read_execl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai_module/openai_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_module/openai_operations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/vending_machines_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/vending_machines_operations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +64,7 @@
       <recent name="C:\Users\Bingshen\Desktop\Eerste Semester\Innovation lab\GroepOpdrachtVendingMachine\Vending-machines-simulation\db_connections" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.try_get_data (1)">
+  <component name="RunManager" selected="Python.auth_gui">
     <configuration name="auth_gui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Vending-machines-simulation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -206,8 +177,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.try_get_data (1)" />
         <item itemvalue="Python.auth_gui" />
+        <item itemvalue="Python.try_get_data (1)" />
         <item itemvalue="Python.chat_gui" />
         <item itemvalue="Python.main_gui" />
         <item itemvalue="Python.pilot" />
@@ -411,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698877277759</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="check all files&#10;made better file structure">
+      <option name="closed" value="true" />
+      <created>1699571514130</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1699571514130</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +448,8 @@
     <MESSAGE value="Add response time test" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="add function get_most_sold_items&#10;add function get_most_profitable_product" />
-    <option name="LAST_COMMIT_MESSAGE" value="add function get_most_sold_items&#10;add function get_most_profitable_product" />
+    <MESSAGE value="check all files&#10;made better file structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="check all files&#10;made better file structure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -478,6 +458,11 @@
           <url>file://$PROJECT_DIR$/simulation_lab/try_create_excel.py</url>
           <line>3</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/auth_gui.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -490,10 +475,10 @@
     <SUITE FILE_PATH="coverage/Vending_machines_simulation$chat_gui.coverage" NAME="chat_gui Coverage Results" MODIFIED="1699562933234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/project$try_get_sales.coverage" NAME="try_get_sales Coverage Results" MODIFIED="1699025769572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simulation_lab" />
     <SUITE FILE_PATH="coverage/project$main_gui.coverage" NAME="main_gui Coverage Results" MODIFIED="1699381820766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
-    <SUITE FILE_PATH="coverage/Vending_machines_simulation$try_get_data__1_.coverage" NAME="try_get_data (1) Coverage Results" MODIFIED="1699569545024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_files" />
+    <SUITE FILE_PATH="coverage/Vending_machines_simulation$try_get_data__1_.coverage" NAME="try_get_data (1) Coverage Results" MODIFIED="1699572216182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_files" />
     <SUITE FILE_PATH="coverage/Vending_machines_simulation$pilot.coverage" NAME="pilot Coverage Results" MODIFIED="1699547130209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simulation_lab" />
     <SUITE FILE_PATH="coverage/Vending_machines_simulation$try_get_data.coverage" NAME="try_get_data Coverage Results" MODIFIED="1699398536051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simulation_lab" />
     <SUITE FILE_PATH="coverage/Vending_machines_simulation$objects_init__1_.coverage" NAME="objects_init (1) Coverage Results" MODIFIED="1699396846081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/old_files" />
-    <SUITE FILE_PATH="coverage/Vending_machines_simulation$auth_gui.coverage" NAME="auth_gui Coverage Results" MODIFIED="1699569288733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/Vending_machines_simulation$auth_gui.coverage" NAME="auth_gui Coverage Results" MODIFIED="1699572234260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
   </component>
 </project>

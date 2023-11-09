@@ -143,8 +143,8 @@ def run_conversation(message):
         },
         {
             "name": "quantity_low_message",
-            "description": """ Check the database for vending machines with products quantities <= 5
-                              """,
+            "description": """ Check the database for vending machines with products quantities <= 5. 
+            If it is low than 5 then send whatsapp message""",
             "parameters": {
                 "type": "object",
                 "properties": {
