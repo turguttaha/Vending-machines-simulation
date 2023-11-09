@@ -156,6 +156,20 @@ def run_conversation(message):
         },
         ################
 
+        {
+            "name": "get_vending_machine_info",
+            "description": "Get the temperature, humidiy and state of a vending machine using it's unique ID",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "machine_id": {
+                        "type": "string",
+                        "description": "Unique ID of a vending machine",
+                    },
+                },
+                "required": ["machine_id"],
+            },
+        },
     ]
 
     # Request to the gpt-3.5
@@ -176,6 +190,7 @@ def run_conversation(message):
             "get_profit_certain_period": sales_operations.get_profit_certain_period,
             "analyze_payment_method_in_period": vending_machines_operations.analyze_payment_method_in_period,
             "create_excel_in_certain_period": financial_operations.create_excel_in_certain_period,
+            "get_vending_machine_info": vending_machines_operations.get_vending_machine_info,
 
             #  ####################IMDAT
             "get_most_sold_items": sales_operations.get_most_sold_items,

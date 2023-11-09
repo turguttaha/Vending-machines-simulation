@@ -13,10 +13,15 @@ def get_all_data():
     return cursor
 
 
-def get_vending_machine_data():
-    collection = mongodb_instance.db["ChatBotDB.ChatBotDB-Release-0.1"]
-    cursor = collection.find({})
-    return cursor
+
+def get_vending_machine_data(machine_id):
+    collection = mongodb_instance.db["Vending-Machines-0.1"]
+    query = {"vendingMachineID": machine_id}
+
+    vending_machine_data = collection.find_one(query)
+
+    return vending_machine_data
+
 
 
 def get_all_payment_and_times():

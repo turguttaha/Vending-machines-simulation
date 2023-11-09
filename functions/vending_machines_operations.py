@@ -1,8 +1,16 @@
+from multiprocessing.connection import Client
+
 import matplotlib.pyplot as plt
 import matplotlib
+import pymongo
+
 from data import mongodb_data
 from datetime import datetime
+
+from data.mongodb_data import get_vending_machine_data
+
 matplotlib.use('TkAgg')
+
 
 def analyze_payment_method_in_table(payment_methode_str_array, payment_times_int_array, start_date=None, end_date=None):
     plt.rcParams['font.sans-serif'] = ['Arial']
@@ -92,3 +100,20 @@ def quantity_low_message():
 
         print("Quantity low message sent. SID:", message.sid)
     return f"You are going to just say I checked your stocks  "
+
+def get_vending_machine_info(machine_id):
+    vending_machine_data = get_vending_machine_data(machine_id)
+
+    if vending_machine_data:
+        temperature = vending_machine_data.get('temp')
+        humidity = vending_machine_data.get('humidity')
+        status = vending_machine_data.get('status')
+
+        if temperature is not None and humidity is not None:
+            info = f"Machine ID: {machine_id}\nTemperature: {temperature}°C, Humidity: {humidity}%, Status: {status}"
+            return info
+        else:
+            # Handle the case where temperature, humidity, or status data is missing
+            return "Data not available or incomplete."
+    else:
+        return f"Machine with ID {machine_id} not found."

@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b1bc90-0678-4b62-a1f5-4dbdae67123a" name="Changes" comment="add function get_most_sold_items&#10;add function get_most_profitable_product">
+      <change beforePath="$PROJECT_DIR$/.idea/Vending-machines-simulation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Vending-machines-simulation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/chat_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/chat_gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mongodb_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/mongodb_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/openai_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/openai_operations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/vending_machines_operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/vending_machines_operations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,6 +78,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/auth_gui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -92,10 +96,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.9 (PycharmProjects)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/chat_gui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -193,6 +199,7 @@
       <workItem from="1698748532067" duration="8000" />
       <workItem from="1698752522933" duration="233000" />
       <workItem from="1698752758417" duration="1926000" />
+      <workItem from="1699537082348" duration="1690000" />
     </task>
     <task id="LOCAL-00001" summary="Init Gitignore">
       <option name="closed" value="true" />
@@ -448,5 +455,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CHATBOT_FINAL$chat_gui.coverage" NAME="chat_gui Coverage Results" MODIFIED="1699539516530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
   </component>
 </project>
