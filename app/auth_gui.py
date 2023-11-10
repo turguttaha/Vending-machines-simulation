@@ -29,8 +29,8 @@ def simulate_vm_operations():
 def reload_machines():
     while True:
         reload_vm()
-        # Wait for 4 minutes
-        time.sleep(240)
+        # Wait for 6 minutes
+        time.sleep(12000)
 
 
 # Enable tracemalloc

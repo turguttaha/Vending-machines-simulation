@@ -21,7 +21,6 @@ def run_conversation(message):
                     Your response format should be an emoticon followed by a colon and space, then your reply in this manner "(😊): Your reply".
                     The currency is in euros €.
                     Our company operations started on 2020/01/01.
-                    Do not make assumptions about what values to plug into functions.
                     Ask for clarification if a user's request is ambiguous.
                     Today is {str(datetime.now().date())}
                 """

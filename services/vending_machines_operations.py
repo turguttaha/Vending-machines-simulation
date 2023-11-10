@@ -24,66 +24,66 @@ def change_status_vm_to_working(vendingMachineID):
         return "No vending machine matching this id number was found"
 
 
-# def quantity_low_message():
-#
-#     collection = mongodb_data.mongodb_instance.db["Vending-Machines-0.1"]
-#
-#     # Define the aggregation pipeline
-#     pipeline = [
-#         {
-#             "$unwind": "$products"
-#         },
-#         {
-#             "$match": {
-#                 "products.quantity": {"$lte": 5}
-#             }
-#         },
-#         {
-#             "$project": {
-#                 "vendingMachineID": 1,
-#                 "products.name": 1,
-#                 "products.quantity": 1
-#             }
-#         },
-#         {
-#             "$group": {
-#                 "_id": "$vendingMachineID",
-#                 "products": {
-#                     "$push": {
-#                         "name": "$products.name",
-#                         "quantity": "$products.quantity"
-#                     }
-#                 }
-#             }
-#         }
-#     ]
-#
-#     # Execute the aggregation query
-#     result = list(collection.aggregate(pipeline))
-#     if result == []:
-#         return "There is no low inventory alert!"
-#     account_sid = 'ACb01999e9dfdd51a3f26e1c4076777e7f'
-#     auth_token = '7a0077352b970daa2f65fe27667ed130'
-#     client = Client(account_sid, auth_token)
-#
-#     for info in result:
-#         print(info)
-#         vending_machineid = info["_id"]
-#         products_info = info["products"]  # Rename to avoid conflict with outer loop
-#         print(f"{vending_machineid} contains the following products with quantities <= 5:")
-#         for product in products_info:  # Rename to avoid conflict with outer loop
-#             print(f"{product['name']}: {product['quantity']}")
-#
-#         # twilio if you don't comment it's going to send messages to my phone XD
-#         message = client.messages.create(
-#             from_='whatsapp:+14155238886',
-#             body='Product quantity is low: ' + ', '.join(
-#                 [f"{vending_machineid}:{product['name']}: {product['quantity']}" for product in products_info]),
-#              to='whatsapp:+32493350344'
-#         )
-#
-#         print("Quantity low message sent. SID:", message.sid)
-#     return f"You are going to just say I checked your stocks  "
+def quantity_low_message():
+
+    collection = mongodb_data.mongodb_instance.db["Vending-Machines-0.1"]
+
+    # Define the aggregation pipeline
+    pipeline = [
+        {
+            "$unwind": "$products"
+        },
+        {
+            "$match": {
+                "products.quantity": {"$lte": 5}
+            }
+        },
+        {
+            "$project": {
+                "vendingMachineID": 1,
+                "products.name": 1,
+                "products.quantity": 1
+            }
+        },
+        {
+            "$group": {
+                "_id": "$vendingMachineID",
+                "products": {
+                    "$push": {
+                        "name": "$products.name",
+                        "quantity": "$products.quantity"
+                    }
+                }
+            }
+        }
+    ]
+
+    # Execute the aggregation query
+    result = list(collection.aggregate(pipeline))
+    if result == []:
+        return "There is no low inventory alert!"
+    account_sid = 'ACb01999e9dfdd51a3f26e1c4076777e7f'
+    auth_token = '7a0077352b970daa2f65fe27667ed130'
+    client = Client(account_sid, auth_token)
+
+    for info in result:
+        print(info)
+        vending_machineid = info["_id"]
+        products_info = info["products"]  # Rename to avoid conflict with outer loop
+        print(f"{vending_machineid} contains the following products with quantities <= 5:")
+        for product in products_info:  # Rename to avoid conflict with outer loop
+            print(f"{product['name']}: {product['quantity']}")
+
+        # twilio if you don't comment it's going to send messages to my phone XD
+        message = client.messages.create(
+            from_='whatsapp:+14155238886',
+            body='Product quantity is low: ' + ', '.join(
+                [f"{vending_machineid}:{product['name']}: {product['quantity']}" for product in products_info]),
+             to='whatsapp:+32493350344'
+        )
+
+        print("Quantity low message sent. SID:", message.sid)
+    return f"You are going to just say I checked your stocks  "
 
 def get_vending_machine_info(machine_id):
     vending_machine_data = get_vending_machine_data(machine_id)
